@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Entity;
+namespace App\DBs;
 
 use Module\Database;
+use App\Models\Book;
 
 class DBBook {
 	public static function register(Book $book, $book_id){

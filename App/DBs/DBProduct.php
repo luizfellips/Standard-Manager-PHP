@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Entity;
+namespace App\DBs;
 
 use Module\Database;
+use App\Models\Product;
 
 class DBProduct {
 	public static function register(Product $product){

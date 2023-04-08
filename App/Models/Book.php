@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity;
+namespace App\Models;
 
 class Book extends Product{
     

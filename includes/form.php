@@ -1,5 +1,5 @@
 <main>
-
+<script src="src\scripts\dynamic_form.js"></script>
     <section>
         <a href="index.php">
             <button class="btn btn-success">Cancel</button>
@@ -23,21 +23,37 @@
             <textarea class="form-control" name="Description" rows="5"></textarea>
         </div>
 
-        
-        <select class="form-select" name="ProductType">
-            <option selected>Select the product type</option>
-            <option value="Book">Book</option>
-            <option value="DVD">DVD</option>
-            <option value="Furniture">Furniture</option>
-        </select>
 
-        <div class="form-group">
-            <label>Author</label>
-            <input type="text" class="form-control" name="Author">
+        <label for="ProductType">Type Switcher
+            <select name="ProductType" id="productType" onChange="selectProductType(this.value);" required>
+                <option value="">Type Switcher</option>
+                <option value="DVD" id="DVD">DVD</option>
+                <option value="Book" id="Book">Book</option>
+                <option value="Furniture" id="Furniture">Furniture</option>
+            </select></label>
+
+
+
+        <div class="fieldbox" id="dvd_attributes" style="display: none;">
+            <p>Specify the size of the DVD.</p>
+            <label>Size(MB)<input type="number" name="Size" id="size"></label>
         </div>
-        <div class="form-group">
-            <label>Genre</label>
-            <input type="text" class="form-control" name="Genre">
+
+        <div class="fieldbox" id="book_attributes" style="display: none;">
+            <p>Please specify the author and the genre of the book.</p>
+            <label>Author <input type="text" name="Author" id="author"></label>
+            <label>Genre<input type="number" name="Genre" id="genre"></label>
+        </div>
+
+        <div class="fieldbox" id="furniture_attributes" style="display: none;">
+            <p>Please provide the dimensions of the furniture.</p>
+
+            <label>Height(CM) <input type="text" name="Height" id="height"></label>
+
+            <label>Width(CM) <input type="text" name="Width" id="width"></label>
+
+            <label>Length(CM) <input type="text" name="Length" id="length"></label>
+
         </div>
 
 
