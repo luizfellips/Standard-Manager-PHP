@@ -27,6 +27,8 @@ class DBFurniture {
 
 	}
 	public static function getProduct(int $id){
+		$productData = (new Database('furniture'))->select('id = ' . $id)->fetch();
+		return new Furniture($productData['id'],$productData['name'],$productData['description'],$productData['product_type'],$productData['height'], $productData['width'], $productData['length']);
 
 	} 
 	public static function getProducts($where = null, $order = null, $limit = null){

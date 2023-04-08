@@ -23,7 +23,8 @@ if(isset($_POST['Name'],$_POST['Description'],$_POST['ProductType'])){
     try {
         $product_id = DBProduct::register($product);
         call_user_func_array(array($product_db,'register'),array($product,$product_id));
-        
+        header("Location: index.php");
+        exit;
 
     } catch (\Throwable $th) {
         print_r($th);

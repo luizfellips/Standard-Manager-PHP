@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-class Book extends Product{
+class Book extends Product implements \JsonSerializable{
     
     private $author;
     private $genre;
@@ -11,6 +11,10 @@ class Book extends Product{
         parent::__construct($id,$name,$description,$product_type);
         $this->author = $author;
         $this->genre = $genre;
+    }
+    public function jsonSerialize()
+    {
+        return get_object_vars($this);
     }
 
     public function getAuthor(){

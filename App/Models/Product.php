@@ -8,7 +8,7 @@ abstract class Product{
     protected $description;
     protected $product_type;
 
-    public function __construct($id = null,$name,$description,$product_type)
+    public function __construct($id = null,$name = null,$description = null,$product_type = null)
     {
         $this->id = $id;
         $this->name = $name;
@@ -37,5 +37,26 @@ abstract class Product{
  		return $this->product_type; 
 	} 
 
+	function setId($id) {  
+		$this->id = $id; 
+	} 
+
+	function setName($name) {  
+		$this->name = $name; 
+	} 
+
+	function setDescription($description) {  
+		$this->description = $description; 
+	} 
+
+	function setProducttype($product_type) {  
+		$this->product_type = $product_type; 
+	} 
+	
+
+
 	
 }
+
+
+	

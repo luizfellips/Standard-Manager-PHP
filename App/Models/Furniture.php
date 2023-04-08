@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-class Furniture extends Product{
+class Furniture extends Product implements \JsonSerializable{
     
     private $height;
     private $width;
@@ -15,7 +15,10 @@ class Furniture extends Product{
         $this->length = $length;
     }
 
-    
+    public function jsonSerialize()
+    {
+        return get_object_vars($this);
+    }
 
 	function getHeight() { 
  		return $this->height; 

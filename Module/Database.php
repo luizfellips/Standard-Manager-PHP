@@ -56,4 +56,18 @@ class Database{
         //returns the inserted id
         return $this->connection->lastInsertId();
     }   
+
+    public function select($where = null, $order = null, $limit = null,$fields = '*'){
+        //query data
+        $where = strlen($where) ? 'WHERE '.$where : '';
+        $order = strlen($order) ? 'ORDER BY '.$order : '';
+        $limit = strlen($limit) ? 'LIMIT '.$limit : '';
+
+        //builds the query
+        $query = "SELECT " . $fields . " FROM " . $this->table . ' '. $where . ' '. $order . ' ' . $limit;
+        
+
+        //executes the query
+        return $this->execute($query);
+    }
 }

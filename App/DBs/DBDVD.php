@@ -25,6 +25,8 @@ class DBDVD {
 
 	}
 	public static function getProduct(int $id){
+		$productData = (new Database('dvd'))->select('id = ' . $id)->fetch();
+		return new DVD($productData['id'],$productData['name'],$productData['description'],$productData['product_type'],$productData['size']);
 
 	} 
 	public static function getProducts($where = null, $order = null, $limit = null){
