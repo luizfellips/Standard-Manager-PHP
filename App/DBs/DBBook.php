@@ -22,8 +22,13 @@ class DBBook {
 	public static function delete(){
 
 	}
-	public static function update(){
-
+	public static function update(Book $book){
+		return (new Database('book'))->update('id = '.$book->getId(),[
+			'name' => $book->getName(),
+			'description' => $book->getDescription(),
+			'author' => $book->getAuthor(),
+			'genre' => $book->getGenre()
+		  ]);
 	}
 	public static function getProduct(int $id){
 		$productData = (new Database('book'))->select('id = ' . $id)->fetch();

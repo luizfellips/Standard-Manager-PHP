@@ -51,7 +51,8 @@ foreach ($products as $product) {
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-danger">Delete</button>
+        <a href="edit.php?id=" id="update"><button type="button" class="btn btn-primary">Update</button></a>
       </div>
     </div>
   </div>

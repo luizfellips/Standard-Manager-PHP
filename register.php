@@ -1,5 +1,6 @@
 <?php
 use App\DBs\DBProduct;
+use App\Models\StdProduct;
 
 require __DIR__.'/vendor/autoload.php';
 

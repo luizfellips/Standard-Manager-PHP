@@ -25,9 +25,12 @@ class DBProduct
 	{
 
 	}
-	public static function update()
+	public static function update(Product $product)
 	{
-
+		return (new Database('product'))->update('id = '.$product->getId(),[
+			'name' => $product->getName(),
+			'description' => $product->getDescription()
+		  ]);
 	}
 	public static function getProduct(int $id)
 	{

@@ -21,7 +21,12 @@ class DBDVD {
 	public static function delete(){
 
 	}
-	public static function update(){
+	public static function update(DVD $dvd){
+		return (new Database('dvd'))->update('id = '.$dvd->getId(),[
+			'name' => $dvd->getName(),
+			'description' => $dvd->getDescription(),
+			'size' => $dvd->getSize(),
+		  ]);
 
 	}
 	public static function getProduct(int $id){

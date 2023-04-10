@@ -1,12 +1,11 @@
 <main>
-    <script src="src\scripts\scripts.js"></script>
     <section class="m-2">
         <a href="index.php">
             <button class="btn btn-primary">Cancel</button>
         </a>
     </section>
 
-    <h2 class="mt-3 display-6">
+    <h2 class="mt-3 mx-5 display-6">
         <?= TITLE ?>
     </h2>
 
@@ -16,24 +15,17 @@
             <div class="col">
                 <div class="form-group">
                     <label>Name</label>
-                    <input type="text" class="form-control" name="Name"  required>
+                    <input type="text" class="form-control" name="Name" value="<?= $product->getName() ?>" required>
                 </div>
 
                 <div class="form-group">
                     <label>Description</label>
-                    <textarea class="form-control" name="Description" rows="6"  required></textarea>
+                    <textarea class="form-control" name="Description" rows="6"
+                        required><?= $product->getDescription() ?></textarea>
                 </div>
 
 
-                <label for="ProductType">Type Switcher
-                    <select class="form-select" name="ProductType" id="productType"
-                        onChange="selectProductType(this.value);" required>
-                        <option value="">Type Switcher</option>
-                        <option value="DVD" id="DVD">DVD</option>
-                        <option value="Book" id="Book">Book</option>
-                        <option value="Furniture" id="Furniture">Furniture</option>
-                       
-                    </select></label>
+
 
                 <div class="form-group m-3">
                     <button type="submit" class="btn btn-primary">Send</button>
@@ -63,7 +55,37 @@
 
                 </div>
             </div>
-           
+            <script>
+                $(document).ready(function () {
+                    var product_type = "<?= $standard_product->getProducttype() ?>";
+                    var id = product_type + "_attributes";
+                    var element = document.getElementById(id.toLowerCase());
+                    element.style.display = "block";
+                    const attributes = {
+                        'DVD': ['size'],
+                        'Book': ['author', 'genre'],
+                        'Furniture': ['height', 'width', 'length']
+                    };
+
+                    for (var i in attributes[product_type]) {
+
+                        var attribute = attributes[product_type][i];
+                        var attribute_element = document.getElementById(attribute);
+                        attribute_element.setAttribute("required", "");
+                        var method = "get" + (attribute.charAt(0).toUpperCase() + attribute.slice(1));
+                        (function (i) {
+                            $.ajax({
+                                type: "POST",
+                                url: "loadAttributes.php",
+                                data: { data: [method, <?= $product->getId() ?>] },
+                                success: function (response) {
+                                    document.getElementById(attributes[product_type][i]).value = response;
+                                }
+                            });
+                        })(i);
+                    }
+                })
+            </script>
         </div>
 
 

@@ -23,7 +23,14 @@ class DBFurniture {
 	public static function delete(){
 
 	}
-	public static function update(){
+	public static function update(Furniture $furniture){
+		return (new Database('furniture'))->update('id = '.$furniture->getId(),[
+			'name' => $furniture->getName(),
+			'description' => $furniture->getDescription(),
+			'height' => $furniture->getHeight(),
+			'width' => $furniture->getWidth(),
+			'length' => $furniture->getLength()
+		  ]);
 
 	}
 	public static function getProduct(int $id){

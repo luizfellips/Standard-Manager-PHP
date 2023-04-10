@@ -70,4 +70,18 @@ class Database{
         //executes the query
         return $this->execute($query);
     }
+
+    public function update($where,$values){
+        //query data
+        $fields = array_keys($values);
+    
+        //builds the query
+        $query = 'UPDATE '.$this->table.' SET '.implode('=?,',$fields).'=? WHERE '.$where;
+    
+        //executes the query
+        $this->execute($query,array_values($values));
+    
+        //Returns success
+        return true;
+      }
 }

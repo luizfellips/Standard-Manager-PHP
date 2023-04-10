@@ -15,6 +15,7 @@ function selectProductType(value) {
 
     document.querySelectorAll('.fieldbox').forEach((node) => (HideFields(node)));
 
+    
     document.getElementById(mapping[value]).style.display = "flex";
     document.getElementById(mapping[value]).style.flexDirection = "column";
     document.getElementById(mapping[value]).lastElementChild.setAttribute('required', '');
@@ -39,6 +40,7 @@ $(document).ready(function () {
                     description: product.description,
                     product_type: product.product_type
                 };
+                
                 const attributes = {};
                 for (const key in product) {
                     if (!properties.hasOwnProperty(key)) {
@@ -48,6 +50,7 @@ $(document).ready(function () {
 
                 $("#product-title").text(properties.name);
                 $("#product-description").text(properties.description);
+                $("#update").attr("href", 'edit.php?id=' + product_id);
 
                 const labels = {
                     size: 'MB',
@@ -64,7 +67,6 @@ $(document).ready(function () {
                     $('#product-attributes').append(`<p><strong>${key.charAt(0).toUpperCase() + key.slice(1)}:</strong> ${displayValue}</p>`);
                 }
                 $("#productModal").modal('show');
-
             }
         })
 
