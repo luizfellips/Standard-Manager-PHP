@@ -1,10 +1,6 @@
 <main>
     <script src="src\scripts\scripts.js"></script>
-    <section class="m-2">
-        <a href="index.php">
-            <button class="btn btn-primary">Cancel</button>
-        </a>
-    </section>
+
 
     <h2 class="mt-3 display-6">
         <?= TITLE ?>
@@ -35,8 +31,9 @@
                        
                     </select></label>
 
-                <div class="form-group m-3">
+                <div class="form-group mt-2">
                     <button type="submit" class="btn btn-primary">Send</button>
+                    <a href="index.php" class="link-danger pt-5 px-2">Cancel</a>
                 </div>
             </div>
 

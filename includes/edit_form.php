@@ -1,9 +1,5 @@
 <main>
-    <section class="m-2">
-        <a href="index.php">
-            <button class="btn btn-primary">Cancel</button>
-        </a>
-    </section>
+    
 
     <h2 class="mt-3 mx-5 display-6">
         <?= TITLE ?>
@@ -29,6 +25,7 @@
 
                 <div class="form-group m-3">
                     <button type="submit" class="btn btn-primary">Send</button>
+                    <a href="index.php" class="link-danger pt-5 px-2">Cancel</a>
                 </div>
             </div>
 
