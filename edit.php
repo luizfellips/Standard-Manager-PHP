@@ -7,6 +7,8 @@ if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
     header('location: index.php');
 }
 
+
+
 $standard_product = App\DBs\DBProduct::getProduct($_GET['id']);
 $product_type = $standard_product->getProducttype();
 $product_db = "App\DBs\\" . "DB" . $product_type;
@@ -14,6 +16,7 @@ $product = call_user_func_array(array($product_db, 'getProduct'), array($_GET['i
 
 
 if (isset($_POST['Name'], $_POST['Description'])) {
+    
     $attributes = array_filter(
         array(
             'author' => $_POST['Author'],
@@ -26,12 +29,12 @@ if (isset($_POST['Name'], $_POST['Description'])) {
     );
 
     try {
-        $model_string = "App\Models\\" . $product_type;
-        $standard_product = new App\Models\StdProduct($_GET['id'], $_POST['Name'], $_POST['Description']);
-        $product = new $model_string($_GET['id'], $_POST['Name'], $_POST['Description'], $product_type, ...array_values($attributes));
+        $AppModel = "App\Models\\" . $product_type;
+        $updated_std_product = new App\Models\StdProduct($_GET['id'], $_POST['Name'], $_POST['Description']);
+        $updated_product = new $AppModel($_GET['id'], $_POST['Name'], $_POST['Description'], $product_type, ...array_values($attributes));
 
-        App\DBs\DBProduct::update($product);
-        $product_db::update($product);
+        App\DBs\DBProduct::update($updated_std_product);
+        $product_db::update($updated_product);
 
         header("Location: index.php");
     } catch (\Throwable $th) {
