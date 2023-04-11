@@ -38,11 +38,11 @@ foreach ($products as $product) {
 </section>
 
 
-<div class="modal" tabindex="-1" id="productModal" >
-  <div class="modal-dialog" >
+<div class="modal fade" tabindex="-1" id="productModal" >
+  <div class="modal-dialog modal-dialog-centered" >
     <div class="modal-content" >
       <div class="modal-header">
-        <h1 class="modal-title display-4" id="product-title">Product title</h1>
+        <h1 class="modal-title display-4 product-title">Product title</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -51,8 +51,26 @@ foreach ($products as $product) {
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-danger">Delete</button>
+        <button type="button" class="btn btn-danger" id="delete">Delete</button>
         <a href="edit.php?id=" id="update"><button type="button" class="btn btn-primary">Update</button></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" tabindex="-1" id="confirmDeleteModal">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Do you really want to delete this product?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h1 class=" display-6 product-title">PRODUCT NAME</h1>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-danger" id="confirmDelete">DELETE</button>
       </div>
     </div>
   </div>

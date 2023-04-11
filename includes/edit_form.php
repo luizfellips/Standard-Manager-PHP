@@ -25,7 +25,7 @@
 
                 <div class="form-group m-3">
                     <button type="submit" class="btn btn-primary">Send</button>
-                    <a href="index.php" class="link-danger pt-5 px-2">Cancel</a>
+                    <a href="index.php" class="link-danger px-2">Cancel</a>
                 </div>
             </div>
 

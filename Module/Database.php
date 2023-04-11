@@ -84,4 +84,17 @@ class Database{
         //Returns success
         return true;
       }
+
+
+      public function delete($where){
+        //builds query
+        $query = 'DELETE FROM '.$this->table.' WHERE '.$where;
+    
+        //executes the query
+        $this->execute($query);
+    
+        //returns success
+        return true;
+      }
+    
 }

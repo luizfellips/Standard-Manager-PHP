@@ -18,8 +18,8 @@ class DBDVD {
 		return true;
 	}
 	
-	public static function delete(){
-
+	public static function delete(DVD $dvd){
+		return (new Database('dvd'))->delete('id = '.$dvd->getId());
 	}
 	public static function update(DVD $dvd){
 		return (new Database('dvd'))->update('id = '.$dvd->getId(),[

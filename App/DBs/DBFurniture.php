@@ -20,8 +20,8 @@ class DBFurniture {
 		return true;
 	}
 	
-	public static function delete(){
-
+	public static function delete(Furniture $furniture){
+		return (new Database('furniture'))->delete('id = '.$furniture->getId());
 	}
 	public static function update(Furniture $furniture){
 		return (new Database('furniture'))->update('id = '.$furniture->getId(),[

@@ -21,9 +21,9 @@ class DBProduct
 		return $inserted_id;
 	}
 
-	public static function delete()
+	public static function delete(Product $product)
 	{
-
+		return (new Database('product'))->delete('id = '.$product->getId());
 	}
 	public static function update(Product $product)
 	{

@@ -19,8 +19,8 @@ class DBBook {
 		return true;
 	}
 	
-	public static function delete(){
-
+	public static function delete(Book $book){
+		return (new Database('book'))->delete('id = '.$book->getId());
 	}
 	public static function update(Book $book){
 		return (new Database('book'))->update('id = '.$book->getId(),[
