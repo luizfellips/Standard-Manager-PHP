@@ -8,4 +8,8 @@ In this project I am experimenting with different architectures to organize the 
 
 ## Update 1.0
 - Update is now available. A form is exhibited with the product's respective attributes already defined.
-- Soon to refactorate
+
+
+## Update 2.0
+- Delete method is now available.
+- Added dropdown button that allows you to navigate to specific products pages( only books, only dvds, only furnitures, etc)
