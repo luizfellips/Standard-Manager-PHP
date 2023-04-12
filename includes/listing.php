@@ -27,9 +27,9 @@ foreach ($products as $product) {
 <script src="src\scripts\scripts.js"></script>
 
 <section class="p-4">
-  <a href="register.php">
-    <button class="btn btn-primary">Register a new product</button>
-  </a>
+<h2 class="display-6">
+        <?= TITLE ?>
+    </h2>
   <table class="table bg-light mt-3 ">
     <?= $results ?>
 

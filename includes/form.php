@@ -2,11 +2,12 @@
     <script src="src\scripts\scripts.js"></script>
 
 
+    
+
+    <div class="container">
     <h2 class="mt-3 display-6">
         <?= TITLE ?>
     </h2>
-
-
     <form method="post">
         <div class="row p-4">
             <div class="col">
@@ -65,5 +66,7 @@
 
 
     </form>
+    </div>
+    
 
 </main>

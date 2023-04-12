@@ -4,7 +4,7 @@ namespace App\DBs;
 
 use Module\Database;
 use App\Models\DVD;
-
+use \PDO;
 class DBDVD {
 	public static function register(DVD $dvd, $dvd_id){
 		$db = new Database('dvd');
@@ -35,6 +35,17 @@ class DBDVD {
 
 	} 
 	public static function getProducts($where = null, $order = null, $limit = null){
-		
+		return (new Database('dvd'))
+			->select($where, $order, $limit)
+			->fetchAll(
+				PDO::FETCH_PROPS_LATE | PDO::FETCH_CLASS,
+				'App\Models\DVD',
+				[	'id',
+					'name',
+					'description',
+					'product_type',
+					'size'
+				]
+			);
 	} 
 }

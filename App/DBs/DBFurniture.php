@@ -4,6 +4,7 @@ namespace App\DBs;
 
 use Module\Database;
 use App\Models\Furniture;
+use \PDO;
 
 class DBFurniture {
 	public static function register(Furniture $furniture, $furniture_id){
@@ -39,6 +40,19 @@ class DBFurniture {
 
 	} 
 	public static function getProducts($where = null, $order = null, $limit = null){
-		
+		return (new Database('furniture'))
+			->select($where, $order, $limit)
+			->fetchAll(
+				PDO::FETCH_PROPS_LATE | PDO::FETCH_CLASS,
+				'App\Models\Furniture',
+				[	'id',
+					'name',
+					'description',
+					'product_type',
+					'height',
+					'width',
+					'length'
+				]
+			);
 	} 
 }

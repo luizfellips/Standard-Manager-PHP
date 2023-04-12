@@ -1,8 +1,9 @@
 <?php
 //autoload
 require __DIR__.'/vendor/autoload.php';
+use App\DBs\DBBook;
 use App\DBs\DBProduct;
-define('TITLE', 'Products');
+define('TITLE', 'Books');
 
 if(isset($_GET["MODAL_PRODUCT_ID"])){
     $product_db = "App\DBs\\" . "DB" . DBProduct::getProduct($_GET["MODAL_PRODUCT_ID"])->getProducttype();
@@ -13,7 +14,7 @@ if(isset($_GET["MODAL_PRODUCT_ID"])){
 else{
     
 //retrieve products from database
-$products = DBProduct::getProducts();
+$products = DBBook::getProducts();
 //include structures
 include __DIR__ . "/includes/header.php";
 include __DIR__ . "/includes/listing.php";

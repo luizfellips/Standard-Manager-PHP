@@ -1,6 +1,6 @@
 <main>
     
-
+<div class="container">
     <h2 class="mt-3 mx-5 display-6">
         <?= TITLE ?>
     </h2>
@@ -57,7 +57,8 @@
                     var product_type = "<?= $standard_product->getProducttype() ?>";
                     var id = product_type + "_attributes";
                     var element = document.getElementById(id.toLowerCase());
-                    element.style.display = "block";
+                    element.style.display = "flex";
+                    element.style.flexDirection = "column";
                     const attributes = {
                         'DVD': ['size'],
                         'Book': ['author', 'genre'],
@@ -68,7 +69,7 @@
 
                         var attribute = attributes[product_type][i];
                         var attribute_element = document.getElementById(attribute);
-                        attribute_element.setAttribute("required", "");
+                        attribute_element.setAttribute("required", "required");
                         var method = "get" + (attribute.charAt(0).toUpperCase() + attribute.slice(1));
                         (function (i) {
                             $.ajax({
@@ -87,5 +88,6 @@
 
 
     </form>
+    </div>
 
 </main>
