@@ -5,6 +5,7 @@ use App\DBs\DBBook;
 use App\DBs\DBProduct;
 define('TITLE', 'Books');
 
+//modal ajax check
 if(isset($_GET["MODAL_PRODUCT_ID"])){
     $product_db = "App\DBs\\" . "DB" . DBProduct::getProduct($_GET["MODAL_PRODUCT_ID"])->getProducttype();
     $product = call_user_func_array(array($product_db,'getProduct'),array($_GET["MODAL_PRODUCT_ID"]));

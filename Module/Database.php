@@ -4,18 +4,16 @@ namespace Module;
 use \PDO;
 use \PDOException;
 
-class Database{
+include("config.php");
+
+final class Database{
 
     //constants
-    const HOST = 'localhost';
-    const USER = 'root';
-    const PASS = '123456';
-    const DB_NAME = 'db_testing';
-    const DB_DRIVER = 'mysql';
+    
     //private variables
     private $table;
     private $connection;
-    private $dsn = 'mysql:host=' . self::HOST . ';dbname=' . self::DB_NAME . ';';
+    private $dsn = 'mysql:host=' . HOST . ';dbname=' . DB_NAME . ';';
     //constructor
     public function __construct($table = null){
         $this->table = $table;
@@ -25,7 +23,7 @@ class Database{
     private function setConnection(){
         try {
 
-            $this->connection = new PDO($this->dsn,self::USER,self::PASS);
+            $this->connection = new PDO($this->dsn,USER,PASS);
             $this->connection->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
         } catch (PDOException $e) {

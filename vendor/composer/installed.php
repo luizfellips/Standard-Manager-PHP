@@ -3,7 +3,7 @@
         'name' => 'fellips/crud-concept',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '9f1a03b4e6fddb6b9c6dcb430ddf086e1fe53397',
+        'reference' => 'c79cada4be9e9021b1ef2380c2e6fa6972161cb9',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'fellips/crud-concept' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '9f1a03b4e6fddb6b9c6dcb430ddf086e1fe53397',
+            'reference' => 'c79cada4be9e9021b1ef2380c2e6fa6972161cb9',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
