@@ -8,8 +8,6 @@ include("config.php");
 
 final class Database{
 
-    //constants
-    
     //private variables
     private $table;
     private $connection;
