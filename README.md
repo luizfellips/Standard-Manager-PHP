@@ -13,3 +13,7 @@ In this project I am experimenting with different architectures to organize the 
 ## Update 2.0
 - Delete method is now available.
 - Added dropdown button that allows you to navigate to specific products pages( only books, only dvds, only furnitures, etc)
+
+## Update 3.0
+
+- Added config.php file incase you want to clone the repo, just alter the constants to fit your local machine's credentials.
