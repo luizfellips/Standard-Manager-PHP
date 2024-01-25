@@ -21,7 +21,7 @@ final class Database{
     private function setConnection(){
         try {
 
-            $this->connection = new PDO($this->dsn,USER,PASS);
+            $this->connection = new PDO($this->dsn,USER);
             $this->connection->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
         } catch (PDOException $e) {
